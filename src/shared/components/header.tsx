@@ -14,14 +14,15 @@ import { ModeToggle } from "@/shared/components/theme-toggle";
 import { Moon, Sun } from "lucide-react";
 
 export const Header = () => (
-  <header className="sticky top-0 left-0 right-0 z-50 shrink-0 mt-2 px-2 h-12">
-    <div className="xl:container h-full xl:mx-auto  w-full flex flex-row gap-1.5 xl:gap-2">
-
-      <HeaderSection className="xl:hidden">
+  <header className="sticky top-0 left-0 right-0 z-50 shrink-0 mt-2 px-2 h-12 flex flex-row">
+      <HeaderSection >
         <SidebarTrigger className="px-4" />
       </HeaderSection>
+    <div className="xl:container h-full xl:mx-auto  w-full flex flex-row gap-1.5 xl:gap-2 justify-between">
+      <div className=""></div>
 
-      <SearchInput className="h-full shadow-sm bg-card! border-border flex-1" />
+
+      <SearchInput className="h-full shadow-sm bg-card! border-border flex-1 max-w-2xl! w-full"  />
 
       <ModeToggle asChild>
         <HeaderSection>
@@ -30,26 +31,6 @@ export const Header = () => (
         </HeaderSection>
       </ModeToggle>
 
-      <nav className="h-full gap-2 xl:flex flex-row hidden justify-end flex-1">
-        {navItems.map((i) => (
-          <HeaderSection>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link href={i.url}>
-                  {(() => {
-                    const Icon = icons[i.icon];
-                    return <Icon className="size-4" />;
-                  })()}
-                </Link>
-              </TooltipTrigger>
-
-              <TooltipContent>
-                <p>{i.title}</p>
-              </TooltipContent>
-            </Tooltip>
-          </HeaderSection>
-        ))}
-      </nav>
       
     </div>
   </header>

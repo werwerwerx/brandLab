@@ -1,5 +1,5 @@
 "use client";
-import { Atom } from "lucide-react";
+import { Shirt } from "lucide-react";
 
 import {
   Sidebar,
@@ -22,13 +22,13 @@ import { cn } from "../lib/utils";
 import { navItems } from "../config/nav-items";
 import { icons } from "../config/icons";
 import React from "react";
-import { useIsXlUp } from "@/shared/hooks/use-mobile";
+
+import { Icon } from 'lucide-react';
+import { coatHanger } from '@lucide/lab';
 
 export function AppSidebar() {
-  const isXlUp = useIsXlUp();
   const pathname = usePathname();
   const { open } = useSidebar();
-  if (isXlUp) return null;
   return (
     <Sidebar variant="floating" collapsible="icon" className="border-border">
       <SidebarHeader>
@@ -45,9 +45,9 @@ export function AppSidebar() {
           }>
             <h1
               aria-label="Electra"
-              className="items-center gap-1 flex flex-row "
+              className="items-center gap-1 flex flex-row text-primary"
             >
-              <Atom className="size-6" />
+                  <Icon iconNode={coatHanger} className="size-5"/>
               <span
                 className={cn({
                   "hidden!": !open,
@@ -55,7 +55,7 @@ export function AppSidebar() {
                     true,
                 })}
               >
-                Electra
+                Aura Closet
               </span>
             </h1>
           </SidebarMenuItem>
