@@ -22,10 +22,13 @@ import { cn } from "../lib/utils";
 import { navItems } from "../config/nav-items";
 import { icons } from "../config/icons";
 import React from "react";
+import { useIsXlUp } from "@/shared/hooks/use-mobile";
 
 export function AppSidebar() {
+  const isXlUp = useIsXlUp();
   const pathname = usePathname();
   const { open } = useSidebar();
+  if (isXlUp) return null;
   return (
     <Sidebar variant="floating" collapsible="icon" className="border-border">
       <SidebarHeader>

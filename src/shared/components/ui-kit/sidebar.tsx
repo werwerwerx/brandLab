@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
 
-import { useIsMobile, useIsLgUp } from "@/shared/hooks/use-mobile"
+import { useIsMobile, useIsXlUp } from "@/shared/hooks/use-mobile"
 import { cn } from "@/shared/lib/utils"
 import { Button } from "@/shared/components/ui-kit/button"
 import { Input } from "@/shared/components/ui-kit/input"
@@ -60,13 +60,16 @@ function SidebarProvider({
   className,
   style,
   children,
+  noWrapperOnXl,
   ...props
 }: React.ComponentProps<"div"> & {
   defaultOpen?: boolean
   open?: boolean
   onOpenChange?: (open: boolean) => void
+  noWrapperOnXl?: boolean
 }) {
   const isMobile = useIsMobile()
+  const isXlUp = useIsXlUp()
   const [openMobile, setOpenMobile] = React.useState(false)
 
   // This is the internal state of the sidebar.
@@ -129,23 +132,27 @@ function SidebarProvider({
   return (
     <SidebarContext.Provider value={contextValue}>
       <TooltipProvider delayDuration={0}>
-        <div
-          data-slot="sidebar-wrapper"
-          style={
-            {
-              "--sidebar-width": SIDEBAR_WIDTH,
-              "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
-              ...style,
-            } as React.CSSProperties
-          }
-          className={cn(
-            "group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full",
-            className
-          )}
-          {...props}
-        >
-          {children}
-        </div>
+        {noWrapperOnXl && isXlUp ? (
+          <>{children}</>
+        ) : (
+          <div
+            data-slot="sidebar-wrapper"
+            style={
+              {
+                "--sidebar-width": SIDEBAR_WIDTH,
+                "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
+                ...style,
+              } as React.CSSProperties
+            }
+            className={cn(
+              "group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full",
+              className
+            )}
+            {...props}
+          >
+            {children}
+          </div>
+        )}
       </TooltipProvider>
     </SidebarContext.Provider>
   )
@@ -303,9 +310,9 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
   )
 }
 
-function SidebarInset({ className, hideOnLg, ...props }: React.ComponentProps<"main"> & { hideOnLg?: boolean }) {
-  const isLgUp = useIsLgUp()
-  if (hideOnLg && isLgUp) return <>{props.children}</>
+function SidebarInset({ className, hideOnXl, ...props }: React.ComponentProps<"main"> & { hideOnXl?: boolean }) {
+  const isXlUp = useIsXlUp()
+  if (hideOnXl && isXlUp) return <>{props.children}</>
 
   return (
     <main

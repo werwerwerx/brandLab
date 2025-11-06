@@ -31,10 +31,10 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased bg-background text-foreground min-h-screen min-w-screen`}
       >
-        <SidebarProvider>
+        <SidebarProvider noWrapperOnXl>
           <ThemeProvider>
             <AppSidebar />
-            <SidebarInset>
+            <SidebarInset hideOnXl>
               <Header />
               <main>{children}</main>
             </SidebarInset>

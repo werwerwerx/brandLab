@@ -41,3 +41,7 @@ export function useIsMobile() {
 export function useIsLgUp() {
   return useBreakpoint({ bp: "lg", direction: "min" })
 }
+
+export function useIsXlUp() {
+  return useBreakpoint({ bp: "xl", direction: "min" })
+}
