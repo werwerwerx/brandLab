@@ -17,8 +17,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Electra - Интернет-магазин цифровой техники",
-  description: "Интернет-магазин цифровой техники",
+  title: "BrandLab - Интернет-магазин одежды",
+  description: "Интернет-магазин одежды",
 };
 
 export default function RootLayout({
@@ -29,14 +29,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased bg-background text-foreground min-h-screen min-w-screen`}
+        className={`${inter.className} antialiased bg-background text-foreground`}
       >
         <SidebarProvider>
           <ThemeProvider>
             <AppSidebar />
             <SidebarInset >
               <Header />
-              <main>{children}</main>
+              {children}
             </SidebarInset>
           </ThemeProvider>
         </SidebarProvider>

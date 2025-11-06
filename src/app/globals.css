@@ -2,22 +2,21 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
 :root {
-  --background: oklch(0.9700 0 0);
-  --foreground: oklch(0.2690 0 0);
-  --card: oklch(0.9850 0 0);
-  --card-foreground: oklch(0.3211 0 0);
+  --background: oklch(0.9500 0 0);
+  --foreground: oklch(0.0650 0 0);
+  --card: oklch(0.9700 0 0);
+  --card-foreground: oklch(0.0650 0 0);
   --popover: oklch(1.0000 0 0);
   --popover-foreground: oklch(0.3211 0 0);
-  --primary: oklch(0.6370 0.2370 25.3310);
+  --primary: oklch(0.5770 0.2450 27.3250);
   --primary-foreground: oklch(0.9670 0.0030 264.5420);
-  --secondary: oklch(0.1450 0 0);
-  --secondary-foreground: oklch(0.9700 0 0);
+  --secondary: oklch(0.2050 0 0);
+  --secondary-foreground: oklch(0.9310 0 0);
   --muted: oklch(0.9220 0 0);
   --muted-foreground: oklch(0.5321 0.0155 290.4588);
-  --accent: oklch(0.8700 0 0);
-  --accent-foreground: oklch(0.3710 0 0);
+  --accent: oklch(0.9850 0 0);
+  --accent-foreground: oklch(0.7040 0.1910 22.2160);
   --destructive: oklch(0.6932 0.0831 65.7325);
   --destructive-foreground: oklch(1.0000 0 0);
   --border: oklch(0.8700 0 0);
@@ -59,24 +58,24 @@
 }
 
 .dark {
-  --background: oklch(0.1822 0 0);
+  --background: oklch(0.1450 0 0);
   --foreground: oklch(0.8700 0 0);
-  --card: oklch(0.2178 0 0);
+  --card: oklch(0.1650 0 0);
   --card-foreground: oklch(0.8700 0 0);
   --popover: oklch(0.2686 0 0);
   --popover-foreground: oklch(0.9219 0 0);
-  --primary: oklch(0.6370 0.2370 25.3310);
+  --primary: oklch(0.5770 0.2450 27.3250);
   --primary-foreground: oklch(1.0000 0 0);
-  --secondary: oklch(0.2686 0 0);
+  --secondary: oklch(0.2050 0 0);
   --secondary-foreground: oklch(0.9310 0 0);
-  --muted: oklch(0.2393 0 0);
+  --muted: oklch(0.2050 0 0);
   --muted-foreground: oklch(0.8047 0 0);
-  --accent: oklch(0.3710 0 0);
-  --accent-foreground: oklch(0.8700 0 0);
+  --accent: oklch(0.2690 0 0);
+  --accent-foreground: oklch(0.8850 0.0620 18.3340);
   --destructive: oklch(0.6932 0.0831 65.7325);
   --destructive-foreground: oklch(1.0000 0 0);
-  --border: oklch(0.3012 0 0);
-  --input: oklch(0.3715 0 0);
+  --border: oklch(0.2050 0 0);
+  --input: oklch(0.2050 0 0);
   --ring: oklch(0.5465 0.1506 285.7515);
   --chart-1: oklch(0.6201 0.1263 284.2165);
   --chart-2: oklch(0.5465 0.1506 285.7515);
@@ -175,7 +174,6 @@
 body {
   letter-spacing: var(--tracking-normal);
 }
-
 @layer base {
   * {
     @apply border-border outline-ring/50;

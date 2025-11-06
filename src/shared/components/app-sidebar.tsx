@@ -23,8 +23,8 @@ import { navItems } from "../config/nav-items";
 import { icons } from "../config/icons";
 import React from "react";
 
-import { Icon } from 'lucide-react';
-import { coatHanger } from '@lucide/lab';
+import { Icon } from "lucide-react";
+import { coatHanger } from "@lucide/lab";
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -33,29 +33,26 @@ export function AppSidebar() {
     <Sidebar variant="floating" collapsible="icon" className="border-border">
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem className={
-            cn(
-              {
-                "py-1 flex flex-center": true,
-                "pl-2": open,
-                "pl-1": !open,
-
-              }
-            )
-          }>
+          <SidebarMenuItem
+            className={cn({
+              "py-1 flex flex-center": true,
+              "pl-2": open,
+              "pl-1": !open,
+            })}
+          >
             <h1
-              aria-label="Electra"
+              aria-label="Brand Lab"
               className="items-center gap-1 flex flex-row text-primary"
             >
-                  <Icon iconNode={coatHanger} className="size-5"/>
+              <Icon iconNode={coatHanger} className="size-6" />
               <span
                 className={cn({
                   "hidden!": !open,
-                  "fade-in-translate-full fade-out-translate-full text-xl font-semibold":
+                  "fade-in-translate-full fade-out-translate-full text-2xl font-semibold":
                     true,
                 })}
               >
-                Aura Closet
+                BrandLab
               </span>
             </h1>
           </SidebarMenuItem>
@@ -68,7 +65,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild isActive={pathname === item.url}>
+                  <SidebarMenuButton variant={"default"} asChild isActive={pathname === item.url}>
                     <Link href={item.url}>
                       {(() => {
                         const Icon = icons[item.icon];

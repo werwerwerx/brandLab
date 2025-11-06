@@ -1,20 +1,12 @@
-import Link from "next/link";
-import { Container } from "./container";
-import { NavItem } from "./header-nav";
-import { Logo } from "./logo";
-import { Button } from "./ui-kit/button";
 import { SidebarTrigger } from "./ui-kit/sidebar";
 import { SearchInput } from "./search-input";
 import React from "react";
 import { cn } from "../lib/utils";
-import { navItems } from "../config/nav-items";
-import { icons } from "../config/icons";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui-kit/tooltip";
 import { ModeToggle } from "@/shared/components/theme-toggle";
 import { Moon, Sun } from "lucide-react";
 
 export const Header = () => (
-  <header className="sticky top-0 left-0 right-0 z-50 shrink-0 mt-2 px-2 h-12 flex flex-row">
+  <header className="sticky top-2 left-0 right-0 z-50 shrink-0 mt-2 h-12 flex flex-row">
       <HeaderSection >
         <SidebarTrigger className="px-4" />
       </HeaderSection>
