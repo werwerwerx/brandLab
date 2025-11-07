@@ -2,6 +2,7 @@ import { Container } from "@/shared/components/container";
 import { Button } from "@/shared/components/ui-kit/button";
 import Image from "next/image";
 import { ArrowDownRightIcon } from "lucide-react";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -15,8 +16,11 @@ export default function Home() {
         </p>
 
         <div className="flex flex-row gap-2">
-          <Button>
-            Перейти в каталог <ArrowDownRightIcon className="rotate-[-90deg]" />
+          <Button asChild>
+            <Link href={"/catalog"} prefetch={true}>
+              Перейти в каталог{" "}
+              <ArrowDownRightIcon className="rotate-[-90deg]" />
+            </Link>
           </Button>
         </div>
       </Container>
@@ -27,16 +31,36 @@ export default function Home() {
 
       <div className="grid grid-cols-2 grid-rows-[1fr_2fr] w-full gap-2 h-[200vh]">
         <div className="relative h-full">
-          <Image src={"/images/promo1.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
+          <Image
+            src={"/images/promo1.avif"}
+            fill
+            objectFit="cover"
+            alt="основной бренд картинка"
+          />
         </div>
         <div className="relative h-full">
-          <Image src={"/images/promo2.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
+          <Image
+            src={"/images/promo2.avif"}
+            fill
+            objectFit="cover"
+            alt="основной бренд картинка"
+          />
         </div>
         <div className="relative col-span-1 h-full">
-          <Image src={"/images/promo3.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
+          <Image
+            src={"/images/promo3.avif"}
+            fill
+            objectFit="cover"
+            alt="основной бренд картинка"
+          />
         </div>
         <div className="relative col-span-1 h-full">
-          <Image src={"/images/promo4.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
+          <Image
+            src={"/images/promo4.avif"}
+            fill
+            objectFit="cover"
+            alt="основной бренд картинка"
+          />
         </div>
       </div>
     </>

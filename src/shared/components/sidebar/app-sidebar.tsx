@@ -16,16 +16,41 @@ import { SidebarNav } from "./sidebar-nav";
 import { Suspense } from "react";
 import { SkeletonUser } from "@/shared/components/sidebar/user-avatar.card.skeleton";
 import Link from "next/link";
-import { Send, HelpCircle } from "lucide-react";
+import { Send, HelpCircle, LogOut } from "lucide-react";
 import { Separator } from "../ui-kit/separator";
+import { SignOutButton } from "../sign-out.button";
+import { Skeleton } from "../ui-kit/skeleton";
 export function AppSidebar() {
   return (
     <Sidebar variant="floating" collapsible="icon" className="border-border">
       <SidebarMyHeader />
 
       <SidebarContent>
-      
+        {/* <Suspense fallback={
+            <SidebarGroup>
+            <SidebarGroupLabel>Меню</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {new Array().fill({length: 10}).map((item) => (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton
+                        variant={"default"}
+                        asChild
+                      >
+                        <Skeleton className="rounded-full size-5" />
+                        <Skeleton className="w-full h-6 rounded-full" />
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        }> */}
+        
+        {/*  NEXT WHY U ARUGUING ME FOR SUSPENSE ???? */}
+
         <SidebarNav />
+        {/* </Suspense> */}
       </SidebarContent>
 
         <SidebarGroup>
@@ -50,10 +75,16 @@ export function AppSidebar() {
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+
+              <SidebarMenuItem>
+              <SignOutButton/>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
         <Separator />
+
+        
 
       <SidebarFooter>
 
