@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/shared/components/header";
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/shared/components/ui-kit/sidebar";
-import { AppSidebar } from "@/shared/components/app-sidebar";
-import { Container } from "@/shared/components/container";
 import { ThemeProvider } from "@/shared/components/theme-provider";
 
 const inter = Inter({
@@ -31,15 +24,9 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased bg-background text-foreground`}
       >
-        <SidebarProvider>
           <ThemeProvider>
-            <AppSidebar />
-            <SidebarInset >
-              <Header />
               {children}
-            </SidebarInset>
           </ThemeProvider>
-        </SidebarProvider>
       </body>
     </html>
   );

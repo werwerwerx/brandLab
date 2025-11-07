@@ -27,16 +27,16 @@ export default function Home() {
 
       <div className="grid grid-cols-2 grid-rows-[1fr_2fr] w-full gap-2 h-[200vh]">
         <div className="relative h-full">
-          <Image src={"/images/promo1.avif"} fill objectFit="cover" />
+          <Image src={"/images/promo1.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
         </div>
         <div className="relative h-full">
-          <Image src={"/images/promo2.avif"} fill objectFit="cover" />
+          <Image src={"/images/promo2.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
         </div>
         <div className="relative col-span-1 h-full">
-          <Image src={"/images/promo3.avif"} fill objectFit="cover" />
+          <Image src={"/images/promo3.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
         </div>
         <div className="relative col-span-1 h-full">
-          <Image src={"/images/promo4.avif"} fill objectFit="cover" />
+          <Image src={"/images/promo4.avif"} fill objectFit="cover" alt="основной бренд картинка"/>
         </div>
       </div>
     </>

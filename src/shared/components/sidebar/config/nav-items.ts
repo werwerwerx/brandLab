@@ -34,11 +34,6 @@ export const navItems: NavItem[] = [
     icon: "HeartIcon",
   },
   {
-    title: "Весы",
-    url: "#",
-    icon: "ScaleIcon",
-  },
-  {
     title: "Настройки",
     url: "#",
     icon: "Settings",
