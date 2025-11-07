@@ -6,6 +6,7 @@ import { Heart } from "lucide-react";
 import Image from "next/image";
 import { Item, ItemTag } from "./item.model";
 import React from "react";
+import { PrefetchLink } from "@/shared/components/prefetch-link";
 
 export const ItemCard = ({
   item,
@@ -13,10 +14,12 @@ export const ItemCard = ({
 }: { item: Item } & React.ComponentProps<"div">) => {
   return (
     <Card className="p-0 py-0 gap-0 shadow-md" {...props}>
+      <PrefetchLink href={"/catalog/" + item.id}>
+        
       <AspectRatio
         ratio={10 / 11}
         className="bg-muted rounded-lg shadow-sm relative"
-      >
+        >
         <Button
           size={"icon"}
           variant={"outline"}
@@ -26,7 +29,7 @@ export const ItemCard = ({
         </Button>
         {/* todo add slider */}
         <Image
-          src={item.imgSrc[0]}
+          src={item.imgs[0]}
           alt="Photo by Drew Beamer"
           fill
           className="h-full w-full rounded-t-md object-cover"
@@ -50,6 +53,7 @@ export const ItemCard = ({
           )}
         </div>
       </CardContent>
+</PrefetchLink>
     </Card>
   );
 };

@@ -1,25 +1,19 @@
+"use cache"
 import { ItemCard } from "@/modules/item/item.card";
+import { Item } from "@/modules/item/item.model";
+import { ItemRepository } from "@/modules/item/items.repository";
 import { Container } from "@/shared/components/container";
-export default function Page() {
+export default async function Page() {
+  const items = await ItemRepository.getAll();
   return (
     <Container className="flex flex-col pt-20">
       <div className=""></div>
       <div className="w-full gap-1 sm:gap-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-        {Array.from({ length: 10 }).map((_, index) => (
-          <ItemCard
-            item={{
-              id: String(index),
-              imgSrc: [
-                "https://img.ostin.com/upload/mdm/media_content/resize/bf0/686_950_a12f/168581490299.jpg",
-              ],
-              name: "Утеплённая куртка с капюшоном",
-              price: 8999,
-              oldPrice: 16000,
-              tags: ["hot", "installment", "sale"],
-            }}
-            key={index}
-          />
-        ))}
+        {Array.from({ length: 10 })
+          .fill(items[0])
+          .map((i, index) => (
+            <ItemCard item={i as Item} key={index} />
+          ))}
       </div>
     </Container>
   );
