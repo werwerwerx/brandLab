@@ -18,3 +18,13 @@ export default async function Page() {
     </Container>
   );
 }
+// Женское: [{
+//   name: "Верхняя одежда",
+//   image_src: "https://img.ostin.com/upload/content/contentgate/prod/ru_ostin/clp/desk__main__w__vo__29102025.webp",
+//   parent_id: col.id
+// }],
+// Мужское: [{
+//   name: "Верхняя одежда",
+//   image_src: "https://img.ostin.com/upload/content/contentgate/prod/ru_ostin/clp/desk__main__m__vo__051125.webp",
+//   parent_id: col.id
+// }],

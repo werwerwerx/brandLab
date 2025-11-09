@@ -14,7 +14,129 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      collection_nodes: {
+        Row: {
+          created_at: string | null
+          id: string
+          image_src: string | null
+          name: string
+          parent_id: string | null
+          search_tsvector: unknown
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          image_src?: string | null
+          name: string
+          parent_id?: string | null
+          search_tsvector?: unknown
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          image_src?: string | null
+          name?: string
+          parent_id?: string | null
+          search_tsvector?: unknown
+        }
+        Relationships: [
+          {
+            foreignKeyName: "collectionnodes_parentid_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "collection_nodes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      item_variants: {
+        Row: {
+          color: string
+          created_at: string | null
+          id: string
+          item_id: string | null
+          quantity: number | null
+          size: string
+          src_images: string[] | null
+        }
+        Insert: {
+          color: string
+          created_at?: string | null
+          id?: string
+          item_id?: string | null
+          quantity?: number | null
+          size: string
+          src_images?: string[] | null
+        }
+        Update: {
+          color?: string
+          created_at?: string | null
+          id?: string
+          item_id?: string | null
+          quantity?: number | null
+          size?: string
+          src_images?: string[] | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "itemvariants_itemid_fkey"
+            columns: ["item_id"]
+            isOneToOne: false
+            referencedRelation: "items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      items: {
+        Row: {
+          characteristics: string | null
+          collection_node_id: string | null
+          created_at: string | null
+          description: string | null
+          hashtags: string[] | null
+          id: string
+          images: string[] | null
+          name: string
+          price: number | null
+          search_tsvector: unknown
+          updated_at: string | null
+        }
+        Insert: {
+          characteristics?: string | null
+          collection_node_id?: string | null
+          created_at?: string | null
+          description?: string | null
+          hashtags?: string[] | null
+          id?: string
+          images?: string[] | null
+          name: string
+          price?: number | null
+          search_tsvector?: unknown
+          updated_at?: string | null
+        }
+        Update: {
+          characteristics?: string | null
+          collection_node_id?: string | null
+          created_at?: string | null
+          description?: string | null
+          hashtags?: string[] | null
+          id?: string
+          images?: string[] | null
+          name?: string
+          price?: number | null
+          search_tsvector?: unknown
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "items_collectionnodeid_fkey"
+            columns: ["collection_node_id"]
+            isOneToOne: false
+            referencedRelation: "collection_nodes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

@@ -50,9 +50,12 @@ export default async function Page(params: Promise<{ id: string }>) {
       <ImagesGrid imgUrls={item.imgs} />
 
       <div className="flex flex-col gap-2 lg:w-[100%]">
-        <div className="flex flex-row w-full gap-0.5 flex-wrap min-w-0">
-          {item.tags.map((tag, index) => Tag(tag, index))}
-        </div>
+        {item.tags.length && (
+          <div className="flex flex-row w-full gap-0.5 flex-wrap min-w-0">
+            {item.tags.map((tag, index) => Tag(tag, index))}
+          </div>
+        )}
+
         <div className="flex flex-col gap-1 mt-2">
           <h1 className="text-2xl font-medium leading-tight text-balance">
             {item.name}
@@ -68,36 +71,42 @@ export default async function Page(params: Promise<{ id: string }>) {
           </div>
         </div>
 
-        <Accordion type="multiple" collapsible>
-          <AccordionItem value="Цвет">
-            <AccordionTrigger>Цвет</AccordionTrigger>
-            <AccordionContent className="gap-2 flex flex-row flex-wrap">
-              {item.colorsHex.map((color, i) => (
-                <Button
-                  size={"icon-sm"}
-                  key={i}
-                  variant={"outline"}
-                  className="shadow-md rounded-full"
-                  style={{ backgroundColor: color }}
-                ></Button>
-              ))}
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="Размер">
-            <AccordionTrigger>Размер</AccordionTrigger>
-            <AccordionContent className="gap-2 flex flex-row flex-wrap">
-              {item.sizes.map((size, i) => (
-                <Button
-                  size={"icon-sm"}
-                  key={i}
-                  variant={"outline"}
-                  className="shadow-md"
-                >
-                  {size}
-                </Button>
-              ))}
-            </AccordionContent>
-          </AccordionItem>
+        <Accordion type="multiple">
+          {item.colorsHex.length && (
+            <AccordionItem value="Цвет">
+              <AccordionTrigger>Цвет</AccordionTrigger>
+              <AccordionContent className="gap-2 flex flex-row flex-wrap">
+                {item.colorsHex.map((color, i) => (
+                  <Button
+                    size={"icon-sm"}
+                    key={i}
+                    variant={"outline"}
+                    className="shadow-md rounded-full"
+                    style={{ backgroundColor: color }}
+                  ></Button>
+                ))}
+              </AccordionContent>
+            </AccordionItem>
+          )}
+
+          {item.sizes.length && (
+            <AccordionItem value="Размер">
+              <AccordionTrigger>Размер</AccordionTrigger>
+              <AccordionContent className="gap-2 flex flex-row flex-wrap">
+                {item.sizes.map((size, i) => (
+                  <Button
+                    size={"icon-sm"}
+                    key={i}
+                    variant={"outline"}
+                    className="shadow-md"
+                  >
+                    {size}
+                  </Button>
+                ))}
+              </AccordionContent>
+            </AccordionItem>
+          )}
+
           <AccordionItem value="Описание">
             <AccordionTrigger>Описание</AccordionTrigger>
             <AccordionContent>{item.description}</AccordionContent>

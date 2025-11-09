@@ -13,4 +13,6 @@ export type Item = {
   tags: ItemTag[]
 }
 
+
+
 export type ItemTag = "hot" | "sale" | "installment"
