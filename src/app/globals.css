@@ -4,9 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 :root {
   --background: oklch(0.9500 0 0);
-  --foreground: oklch(0.0650 0 0);
+  --foreground: oklch(0.06 0 0);
   --card: oklch(0.9700 0 0);
-  --card-foreground: oklch(0.0650 0 0);
+  --card-foreground: oklch(0.060 0 0);
   --popover: oklch(1.0000 0 0);
   --popover-foreground: oklch(0.3211 0 0);
   --primary: oklch(0.5770 0.2450 27.3250);
@@ -53,15 +53,15 @@
   --shadow-lg: 0 1px 12.5px -1px hsl(0 0% 0% / 0.14), 0 4px 6px -2px hsl(0 0% 0% / 0.14);
   --shadow-xl: 0 1px 12.5px -1px hsl(0 0% 0% / 0.14), 0 8px 10px -2px hsl(0 0% 0% / 0.14);
   --shadow-2xl: 0 1px 12.5px -1px hsl(0 0% 0% / 0.35);
-  --tracking-normal: -0.025em;
+  --tracking-normal: -0.015em;
   --spacing: 0.29rem;
 }
 
 .dark {
   --background: oklch(0.1450 0 0);
-  --foreground: oklch(0.8700 0 0);
+  --foreground: oklch(0.90 0 0);
   --card: oklch(0.1650 0 0);
-  --card-foreground: oklch(0.8700 0 0);
+  --card-foreground: oklch(0.90 0 0);
   --popover: oklch(0.2686 0 0);
   --popover-foreground: oklch(0.9219 0 0);
   --primary: oklch(0.5770 0.2450 27.3250);
@@ -181,3 +181,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* 
+.home_banner-gradient{
+  background: #A46F48;
+background: linear-gradient(-90deg,rgba(164, 111, 72, 1) 0%, rgba(140, 126, 118, 0) 100%);
+} */

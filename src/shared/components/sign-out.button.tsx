@@ -2,10 +2,10 @@
 import { createClient } from "../supabase/client"
 import { SidebarMenuButton } from "./ui-kit/sidebar"
 import { LogOut } from "lucide-react"
-import { useTransition } from "react"
+import { Suspense, useTransition } from "react"
 import { useRouter } from "next/navigation"
 
-export const SignOutButton = () => {
+const SignOutButtonWithoutSuspence = () => {
   const [isPending, startTransition] = useTransition()
   const router = useRouter()
   const supabase = createClient()
@@ -21,12 +21,13 @@ export const SignOutButton = () => {
   }
 
   return (
+
     <SidebarMenuButton 
       asChild 
       className="text-destructive" 
       onClick={handleSignOut}
       disabled={isPending}
-    >
+      >
       <div className="flex items-center gap-2">
         {isPending ? (
           <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
@@ -38,3 +39,9 @@ export const SignOutButton = () => {
     </SidebarMenuButton>
   )
 }
+
+export const SignOutButton = () => (
+  <Suspense>
+    <SignOutButtonWithoutSuspence/>
+  </Suspense>
+)
