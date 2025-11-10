@@ -5,7 +5,7 @@ export const Container = ({ asChild = false, className, children, ...props }: Re
   const Comp = asChild ? Slot : "div"
 
   return (
-    <Comp className={cn("container mx-auto px-2  lg:px-none md:px-none flex", className)} {...props}>
+    <Comp className={cn("container mx-auto px-2 flex-col lg:px-none md:px-none flex", className)} {...props}>
       {children}
     </Comp>
   )
