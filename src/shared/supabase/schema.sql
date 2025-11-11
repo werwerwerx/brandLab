@@ -4,6 +4,7 @@ CREATE TABLE CollectionNodes (
   name text NOT NULL,
   imageSrc text,
   createdAt timestamptz DEFAULT now(),
+  slug text NOT NULL,
   searchTsvector tsvector GENERATED ALWAYS AS (
     to_tsvector('simple', name) || 
     to_tsvector('russian', name)
