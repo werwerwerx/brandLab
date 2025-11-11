@@ -13,7 +13,7 @@ import { cn } from "@/shared/lib/utils";
 
 export const HomeHeadingCard = ({className} : {className?: string}) => (
   <Card className={cn("shadow-md relative rounded-xl overflow-hidden flex items-start", className)}>
-    <div className="absolute  bottom-[-30%] sm:bottom-[-30%] lg:bottom-[-50%] xl:bottom-[-120%] right-[-10%] sm:right-[-5%] aspect-1/2 h-100 sm:h-[140%] lg:h-[170%] xl:h-[250%]">
+    <div className="absolute  bottom-[-30%] sm:bottom-[-30%] lg:bottom-[-50%] xl:bottom-[-40%] right-[-10%] sm:right-[-5%] xl:right-[-8%] aspect-1/2 h-100 sm:h-[140%] lg:h-[160%] xl:h-[150%]">
       <Image
         fill
         src={"/images/header-banner-cropped.png"}
